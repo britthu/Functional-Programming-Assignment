@@ -6,10 +6,20 @@
 )
           
 (DEFINE (min-above-min L1 L2)
+        (LET
+         (
+          (L1a (LIST (CAR (new-list L1))))
+          (L2a (LIST (CAR (new-list L2))))
+          )
+         )
         (COND
          ((NULL? L1) #F)
-         ((AND (NULL? L2) (NOT (NULL? L1))) (< (CAR(new-list L1)) (CDR (new-list L1))))
-         ((NOT (NULL? (CAR L2)))(> (< (CAR(new-list L1)) (CDR (new-list L1))) (< (CAR(new-list L2)) (CDR (new-list L2)))))
+         ((AND (NULL? L2) (NOT (NULL? L1))) (COND
+                                            ((< (CAR (new-list L1)) (CAR L1a)) (CONS (CAR (new-list L1)) (L1a)))
+                                            (ELSE )
+                                            )
+         )
+         ((NOT (NULL? (CAR L2))) )
 
         )
 )
